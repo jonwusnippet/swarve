@@ -10,7 +10,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
+    # url(r'^create/$', views.create, name='ev_create'),
     url(r'^$', 'qube.views.home', name='home'),
+    url(r'^contact.html', 'qube.views.contact', name='contact'),
     # url(r'^swarve/', include('swarve.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
