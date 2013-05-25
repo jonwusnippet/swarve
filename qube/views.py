@@ -65,14 +65,14 @@ def home(request):
     # Create API instance
     api = tweepy.API(auth)
 
-    searchResults = api.get_user("@kevjumba")
+    searchResults = api.get_user("@annakendrick47")
     tweet = api.user_timeline(searchResults.id)
 
     success = False
     email = ""
     title = ""
     text = ""
-    
+
     if request.method == "POST":
 
         contact_form = ContactForm(request.POST)
@@ -86,7 +86,7 @@ def home(request):
         contact_form = ContactForm()
 
     ctx = {'search': tweet, 'youtube': search_response.get(
-        "items", []), 'contact_form': contact_form, 'email': email, 'title': title, 'text': text, 'success': success	}
+        "items", []), 'contact_form': contact_form, 'email': email, 'title': title, 'text': text, 'success': success}
 
     return render_to_response('index.html', ctx, context_instance=RequestContext(request))  # pass in our entries array to our html file.
 

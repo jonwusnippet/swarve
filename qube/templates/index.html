@@ -6,9 +6,11 @@
     <script src="static/swarve/js/main-js.js"></script>
     <script type="text/javascript" src="static/swarve/js/Eventbrite.jquery.js"></script>
     <script type="text/javascript" src="static/swarve/js/eventbrite.js"></script>
-    <script type="text/javascript" src="static/swarve/js/auth.js"></script>
-    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
-    <script type="text/javascript" src="static/swarve/js/search.js"></script>
+    <!-- <script type="text/javascript" src="static/swarve/js/auth.js"></script> -->
+    <!-- <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script> -->
+    <!-- <script type="text/javascript" src="static/swarve/js/search.js"></script> -->
+
+    <script type="text/javascript" src="static/swarve/js/instagram.js"></script>
 
     <title></title>
 </head>
@@ -18,24 +20,22 @@
 
         <div class="box">
             <div class="blog_box">
-                {% for tweet in search %}
-                <div class="post">
-                    <p>{{ tweet.text }}</p>
-                </div>
-                <hr />
-                {% endfor %}
+
             </div>
             <div class="twitter_box">
-                <button id="login-link" style="display:none; position: absolute; left: 35%">Authorize</button>
+                {% for tweet in search %}
+                <li>
+                    <a>{{ tweet.text }}</a>                        
+                </li>
+                {% endfor %}
+                <!-- <button id="login-link" style="display:none; position: absolute; left: 35%">Authorize</button> -->
             </div>
             <div class="news_box">
                 {% for vid in youtube %}
-                <div class="post">
-                    <li>
-                        <img src="{{ vid.snippet.thumbnails.default.url }}">
-                        <a class="title_string" target="_blank" href= "http://www.youtube.com/watch?v={{vid.id.videoId }} ">{{ vid.snippet.title }}</a>
-                    </li>
-                </div>
+                <li>
+                    <img src="{{ vid.snippet.thumbnails.default.url }}">
+                    <a class="title_string" target="_blank" href= "http://www.youtube.com/watch?v={{vid.id.videoId }} ">{{ vid.snippet.title }}</a>
+                </li>
                 {% endfor %}
             </div>
             <div class="event_box"></div>
@@ -43,13 +43,16 @@
         </div>
     </div>
     {% if success %}
-        <h2>Data Posted:</h2>
-        <p>email: {{email}}</p>
-        <p>title: {{title}}</p>
-        <p>text: {{text}}</p>
+    <h2>Data Posted:</h2>
+    <p>email: {{email}}</p>
+    <p>title: {{title}}</p>
+    <p>text: {{text}}</p>
     {% else %}
     <h2>Contact</h2>
     <form action="." method="POST">
+        {# {% for field in contact_form %} #}
+        {# {{ field }} #}
+        {# {% endfor %}  #}
         {{ contact_form.as_p }}
         <input type="submit" value="Send">
         <input type="reset" value="Reset">

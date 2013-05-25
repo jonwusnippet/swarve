@@ -3,9 +3,11 @@ html body {
     min-width: 1324px;
     min-height: 768px;
     height: 100%;
-    background-color: white;
+    background-color: black;
 }
-
+h2, p{
+    color: white;
+}
 a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -146,8 +148,28 @@ a:visited {
 }
 .twitter_box li a {
     display: block;
+    font-size: 12px;
 }
 
+.blog_box li {
+    
+    list-style: none;
+    border-bottom: white solid 1px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.blog_box li a {
+    display: block;
+    font-size: 10px;
+}
+.blog_box li img{
+    width:100%;
+    height:auto;
+    position:
+    relative;
+}
 .news_box li {
     
     list-style: none;
